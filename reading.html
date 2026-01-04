@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <STYle>
+    .app {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Phone frame */
+.phone {
+  width: 360px;
+  background: #f2f4f8;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 40px
+   rgba(0,0,0,0.1);
+}
+.screen{
+text-overflow: hidden;
+align-items: center;
+text-align: center;
+}
+.screen h1 {
+  background-color: aqua;
+  border-radius: 30px;
+}
+</STYle>
+    <title> QURAN-READING</title>
+</head>
+<body>
+  <div class="app">
+    <div class="phone">
+        <div class="screen">
+            <h1>SURAH LISTS</h1>
+            <ol id="surahlist"></ol>    
+        </div>
+    </div>
+  </div>
+
+
+
+  <script src="brain.js"></script>
+</body>
+</html>

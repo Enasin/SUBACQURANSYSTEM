@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SUBAC QURAN SYSTEM</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+  
+  <div id="overlay">SQS</div>
+
+  <!-- Desktop Navigation -->
+  <nav class="desktop-nav">
+    <ul>
+      <li class="home-list"><a href="#" class="active-link">Home</a></li>
+      <li><a href="">Unknown</a></li>
+      <li><a href="">Contact</a></li>
+      <li><a href="">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav">
+    <ul>
+      <li><a href="#" class="active-link">Home</a></li>
+      <li><a href="">Unknown</a></li>
+      <li><a href="">Contact</a></li>
+      <li><a href="">About</a></li>
+    </ul>
+  </nav>
+
+<!--FONTEND-->
+  <div class="app">
+    <div class="phone">
+
+      <a href="/SUBAC QURAN SYSTEM/counter.html" class="a" style="text-decoration: none;">
+      <div class="card counting">
+        <div class="icon">📿</div>
+        <div>
+          <h3>Counting</h3>
+          <p>Tasbih / Dhikr</p>
+        </div>
+      </div>
+      </a>
+
+      <a href="/SUBAC QURAN SYSTEM/listening.html" class="a" style="text-decoration: none;">
+      <div class="card listen">
+        <div class="icon">🎧</div>
+        <div>
+          <h3>Listen</h3>
+          <p>Audio Recitation</p>
+        </div>
+      </div>
+      </a>
+ <a href="/SUBAC QURAN SYSTEM/reading.html" class="a" style="text-decoration: none;">
+      <div class="card read">
+        <div class="icon">📖</div>
+        <div>
+          <h3>Read</h3>
+          <p>Quran Reading</p>
+        </div>
+      </div>
+</a>
+      <div class="card subah">
+        <div class="icon">🤖</div>
+        <div>
+          <h3>Subah</h3>
+          <p>Advanced (Coming Soon)</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const overlay = document.getElementById('overlay');
+      const navLinks = document.querySelectorAll('.mobile-nav a');
+
+      // Toggle menu open/close
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        overlay.classList.toggle('active');
+        
+        // Toggle body scroll
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      });
+
+      // Close menu when clicking overlay
+      overlay.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      // Close menu when clicking a link (optional)
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          toggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Add keyboard accessibility
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          toggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quran Audio Player</title>
+
+<style>
+
+  body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f9f9f9;
+
+    padding: 20px;
+
+  }
+
+  h1 {
+
+    text-align: center;
+
+    color: #333;
+
+  }
+
+  .controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    gap: 10px;
+
+  }
+
+  select, button {
+
+    padding: 8px;
+
+    font-size: 16px;
+
+  }
+
+  .surah-list {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+
+    gap: 10px;
+
+  }
+
+  .surah {
+
+    background: white;
+
+    border: 1px solid #ccc;
+
+    padding: 10px;
+
+    text-align: center;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+  }
+
+  .surah:hover {
+
+    background: #e0f7fa;
+
+    border-color: #00acc1;
+
+  }
+
+  audio {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Quran Audio Player</h1>
+
+<div class="controls">
+
+  <label for="reciter">Choose Reciter:</label>
+
+  <select id="reciter">
+
+    <option value="mishaari_raashid_al_3afaasee">Mishari Rashid Alafasy</option>
+
+    <option value="mahmood_khaleel_al-husaree">Mahmoud Khaleel Al-Husary</option>
+
+    <option value="mostafa_ismaeel">Mostafa Ismaeel</option>
+
+    <!-- Add more reciters here -->
+
+  </select>
+
+</div>
+
+<div class="surah-list" id="surahList"></div>
+
+<audio id="player" controls></audio>
+
+<script>
+
+  const surahList = document.getElementById('surahList');
+
+  const player = document.getElementById('player');
+
+  const reciterSelect = document.getElementById('reciter');
+
+  // List of 114 Surahs
+
+  const surahs = [
+
+    "Al-Fatiha","Al-Baqarah","Aal-E-Imran","An-Nisa","Al-Ma'idah","Al-An'am",
+
+    "Al-A'raf","Al-Anfal","At-Tawbah","Yunus","Hud","Yusuf","Ar-Ra'd","Ibrahim",
+
+    "Al-Hijr","An-Nahl","Al-Isra","Al-Kahf","Maryam","Ta-Ha","Al-Anbiya","Al-Hajj",
+
+    "Al-Mu'minun","An-Nur","Al-Furqan","Ash-Shu'ara","An-Naml","Al-Qasas","Al-Ankabut",
+
+    "Ar-Rum","Luqman","As-Sajda","Al-Ahzab","Saba","Fatir","Ya-Sin","As-Saffat",
+
+    "Sad","Az-Zumar","Ghafir","Fussilat","Ash-Shura","Az-Zukhruf","Ad-Dukhan",
+
+    "Al-Jathiya","Al-Ahqaf","Muhammad","Al-Fath","Al-Hujurat","Qaf","Adh-Dhariyat",
+
+    "At-Tur","An-Najm","Al-Qamar","Ar-Rahman","Al-Waqia","Al-Hadid","Al-Mujadila",
+
+    "Al-Hashr","Al-Mumtahina","As-Saff","Al-Jumua","Al-Munafiqun","At-Taghabun",
+
+    "At-Talaq","At-Tahrim","Al-Mulk","Al-Qalam","Al-Haqqah","Al-Ma'arij","Nuh",
+
+    "Al-Jinn","Al-Muzzammil","Al-Muddaththir","Al-Qiyamah","Al-Insan","Al-Mursalat",
+
+    "An-Naba","An-Nazi'at","Abasa","At-Takwir","Al-Infitar","Al-Mutaffifin","Al-Inshiqaq",
+
+    "Al-Buruj","At-Tariq","Al-A'la","Al-Ghashiya","Al-Fajr","Al-Balad","Ash-Shams",
+
+    "Al-Lail","Ad-Duhaa","Ash-Sharh","At-Tin","Al-Alaq","Al-Qadr","Al-Bayyina",
+
+    "Az-Zalzala","Al-Adiyat","Al-Qaria","At-Takathur","Al-Asr","Al-Humaza",
+
+    "Al-Fil","Quraish","Al-Ma'un","Al-Kawthar","Al-Kafiroon","An-Nasr","Al-Masad",
+
+    "Al-Ikhlas","Al-Falaq","An-Nas"
+
+  ];
+
+  function loadSurahs() {
+
+    surahList.innerHTML = '';
+
+    surahs.forEach((name, index) => {
+
+      const surahDiv = document.createElement('div');
+
+      surahDiv.className = 'surah';
+
+      surahDiv.textContent = `${index + 1}. ${name}`;
+
+      surahDiv.onclick = () => {
+
+        const reciter = reciterSelect.value;
+
+        const surahNumber = String(index + 1).padStart(3, '0');
+
+        player.src = `https://download.quranicaudio.com/quran/${reciter}/${surahNumber}.mp3`;
+
+        player.play();
+
+      };
+
+      surahList.appendChild(surahDiv);
+
+    });
+
+  }
+
+  loadSurahs();
+
+</script>
+
+</body>
+
+</html>
