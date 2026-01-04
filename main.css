@@ -167,26 +167,18 @@
 
 /* FONT STYLES */
 .app {
-    min-height: 100svh;        /* full screen height */
-    display: flex;
-    flex-direction: column;     /* stack cards vertically */
-    justify-content: center;    /* vertical center */
-    align-items: center;        /* horizontal center */
-    padding: 20px;
-    gap: 20px;                  /* space between cards */
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
   .phone {
-    width: 300px;
-    height: 600px;
-    background-color: #fff;
-    border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    color: #333;
-  }
+  width: 320px;
+  background: #f2f4f8;
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
 /* Cards */
 .card {
   display: flex;
@@ -271,6 +263,7 @@
     }
 
     }
+
 
 
 
