@@ -183,7 +183,6 @@
     border-radius: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     display: flex;
-    justify-content: center;
     align-items: center;
     font-size: 24px;
     color: #333;
@@ -272,6 +271,7 @@
     }
 
     }
+
 
 
 
