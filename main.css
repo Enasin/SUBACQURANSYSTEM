@@ -169,10 +169,12 @@
 .app {
     min-height: 100svh;        /* full screen height */
     display: flex;
-    justify-content: center;    /* horizontal center */
-    
+    flex-direction: column;     /* stack cards vertically */
+    justify-content: center;    /* vertical center */
+    align-items: center;        /* horizontal center */
     padding: 20px;
-  }
+    gap: 20px;                  /* space between cards */
+}
 
   .phone {
     width: 300px;
@@ -270,5 +272,6 @@
     }
 
     }
+
 
 
