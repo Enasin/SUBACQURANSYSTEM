@@ -170,7 +170,7 @@
     min-height: 100svh;        /* full screen height */
     display: flex;
     justify-content: center;    /* horizontal center */
-    align-items: center;        /* vertical center */
+    
     padding: 20px;
   }
 
@@ -270,4 +270,5 @@
     }
 
     }
+
 
